@@ -1,5 +1,3 @@
-Here's the detailed `README.md` file with the correct GitHub repository link and complete instructions:
-
 ```markdown
 # StreamFlix Deployment
 
@@ -137,10 +135,3 @@ For any issues or further assistance, please contact [Your Name] at [bhumihrjee@
 
 You can also connect with me on [LinkedIn](https://www.linkedin.com/in/bhumiharjee/).
 ```
-
-### Summary:
-- **Repository Link**: The repository is correctly referenced as `https://github.com/Bhumiharjee/Oriserve-Assignment-Streamflix`.
-- **Methods**: Both Docker and non-Docker deployment methods are thoroughly detailed, with all necessary commands and steps.
-- **Directories**: Proper paths are mentioned for configuration and deployment files.
-
-Remember to replace placeholders like `[Your Name]` and `[your.email@example.com]` with your actual information.
