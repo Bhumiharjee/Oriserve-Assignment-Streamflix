@@ -1,137 +1,98 @@
 ```markdown
-# StreamFlix Deployment
+# Oriserve Assignment: Streamflix
 
-This guide provides detailed steps to deploy the StreamFlix application on NGINX using two methods: Docker and a traditional non-Docker setup.
+Welcome to the Streamflix project! 🎬 Streamflix is an innovative streaming application designed to deliver a seamless and engaging media experience. This README provides you with all the information needed to get started with both Docker and non-Docker methods for deploying the project.
 
 ## Table of Contents
 
+- [Project Overview](#project-overview)
 - [Prerequisites](#prerequisites)
-- [Method 1: Deployment Using Docker](#method-1-deployment-using-docker)
-  - [Step 1: Install Docker](#step-1-install-docker)
-  - [Step 2: Clone the Repository](#step-2-clone-the-repository)
-  - [Step 3: Build the Docker Image](#step-3-build-the-docker-image)
-  - [Step 4: Run the Docker Container](#step-4-run-the-docker-container)
-- [Method 2: Traditional Deployment Without Docker](#method-2-traditional-deployment-without-docker)
-  - [Step 1: Install NGINX](#step-1-install-nginx)
-  - [Step 2: Clone the Repository](#step-2-clone-the-repository-1)
-  - [Step 3: Configure NGINX](#step-3-configure-nginx)
-  - [Step 4: Deploy the Application](#step-4-deploy-the-application)
-- [Testing the Deployment](#testing-the-deployment)
-- [Contact](#contact)
+- [Installation](#installation)
+  - [Non-Docker Method](#non-docker-method)
+  - [Docker Method](#docker-method)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Project Overview
+
+Streamflix is a cutting-edge streaming service that allows users to explore, watch, and enjoy a vast collection of media content. With a modern architecture and user-friendly interface, Streamflix aims to provide an exceptional viewing experience.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following:
+Before you begin, ensure you have the following installed:
 
-- Access to a server with a Linux-based OS (e.g., Ubuntu).
-- A domain name (optional but recommended).
-- Basic command-line knowledge.
+- **Node.js** (v14 or higher)
+- **Docker** (for Docker deployment)
+- **Git**
 
-## Method 1: Deployment Using Docker
+## Installation
 
-### Step 1: Install Docker
+### Non-Docker Method
 
-If Docker is not installed, use the following commands:
+1. **Clone the Repository**
 
-```bash
-sudo apt-get update
-sudo apt-get install -y docker.io
-```
+   ```bash
+   git clone https://github.com/Bhumiharjee/Oriserve-Assignment-Streamflix.git
+   cd Oriserve-Assignment-Streamflix
+   ```
 
-### Step 2: Clone the Repository
+2. **Install Dependencies**
 
-Clone the StreamFlix repository from GitHub:
+   ```bash
+   npm install
+   ```
 
-```bash
-git clone https://github.com/Bhumiharjee/Oriserve-Assignment-Streamflix.git
-cd Oriserve-Assignment-Streamflix
-```
+3. **Configure Environment Variables**
 
-### Step 3: Build the Docker Image
+   Create a `.env` file in the root directory and add the following environment variables:
 
-Build the Docker image for StreamFlix:
+   ```bash
+   DATABASE_URL=<your-database-url>
+   PORT=80
+   ```
 
-```bash
-docker build -t streamflix:latest .
-```
+4. **Run the Application**
 
-### Step 4: Run the Docker Container
+   ```bash
+   npm start
+   ```
 
-Run the Docker container with the built image:
+   The application will be accessible at `http://localhost:80`.
 
-```bash
-docker run -d -p 80:80 streamflix:latest
-```
+### Docker Method
 
-This command will run the StreamFlix application in a Docker container and expose it on port 80.
+1. **Clone the Repository**
 
-## Method 2: Traditional Deployment Without Docker
+   ```bash
+   git clone https://github.com/Bhumiharjee/Oriserve-Assignment-Streamflix.git
+   cd Oriserve-Assignment-Streamflix
+   ```
 
-### Step 1: Install NGINX
+2. **Build the Docker Image**
 
-If NGINX is not installed, install it using:
+   ```bash
+   docker build -t streamflix .
+   ```
 
-```bash
-sudo apt-get update
-sudo apt-get install -y nginx
-```
+3. **Run the Docker Container**
 
-### Step 2: Clone the Repository
+   ```bash
+   docker run -p 80:80 --env-file .env streamflix
+   ```
 
-Clone the StreamFlix repository from GitHub:
+   The application will be accessible at `http://localhost:80`.
 
-```bash
-git clone https://github.com/Bhumiharjee/Oriserve-Assignment-Streamflix.git
-cd Oriserve-Assignment-Streamflix
-```
+## Usage
 
-### Step 3: Configure NGINX
+After deployment, navigate to `http://localhost:80` to access the Streamflix application. Explore the media library, manage your account, and enjoy your favorite shows and movies!
 
-Copy the provided NGINX configuration file to the appropriate directory:
+## Contributing
 
-```bash
-sudo cp deploy/nginx_streamflix.conf /etc/nginx/sites-available/streamflix
-```
+We welcome contributions to the Streamflix project! If you have suggestions, improvements, or bug fixes, please submit a pull request or open an issue. For detailed contribution guidelines, refer to [CONTRIBUTING.md](CONTRIBUTING.md).
 
-Create a symbolic link to enable the configuration:
+## License
 
-```bash
-sudo ln -s /etc/nginx/sites-available/streamflix /etc/nginx/sites-enabled/
-```
+This project is licensed under the [MIT License](LICENSE).
 
-Test the NGINX configuration:
-
-```bash
-sudo nginx -t
-```
-
-If the test is successful, restart NGINX:
-
-```bash
-sudo systemctl restart nginx
-```
-
-### Step 4: Deploy the Application
-
-Copy the application files to the web root directory:
-
-```bash
-sudo cp -r ./app /var/www/streamflix
-```
-
-Set the appropriate permissions:
-
-```bash
-sudo chown -R www-data:www-data /var/www/streamflix
-```
-
-## Testing the Deployment
-
-After deploying using either method, visit your server's IP address or domain name in a web browser to verify that the StreamFlix application is running correctly.
-
-## Contact
-
-For any issues or further assistance, please contact [Your Name] at [bhumihrjee@gmail.com].
-
-You can also connect with me on [LinkedIn](https://www.linkedin.com/in/bhumiharjee/).
 ```
