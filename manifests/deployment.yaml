@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: StreamFlix
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: StreamFlix
+  template:
+    metadata:
+      labels:
+        app: StreamFlix
+    spec:
+      containers:
+      - name: StreamFlix
+        image: bhumiharjee/oriserve-streamflix
+        ports:
+        - containerPort: 80
