@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: StreamFlix
+spec:
+  type: LoadBalancer
+  selector:
+    app: StreamFlix
+  ports:
+  - port: 80
+    targetPort: 80
