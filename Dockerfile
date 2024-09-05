@@ -1,5 +1,5 @@
 # Use an official Ubuntu base image
-FROM ubuntu:latest
+FROM ubuntu
 
 # Set the working directory in the container
 WORKDIR /oriserve
